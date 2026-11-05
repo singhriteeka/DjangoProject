@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Student Details</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        margin: auto;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 3px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 align="center">this is the index.html file</h1>
+    <h3>Here are my marks:</h3>
+    <ul>
+      {% for Mark in marks %}
+      <li>{{Mark}}</li>
+      {% endfor %}
+    </ul>
+
+    <h1 align="center">Student Data({{student_data|length}})</h1>
+    <table>
+      {% if student_data|length > 0 %}
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Id</th>
+          <th>Mail</th>
+        </tr>
+      </thead>
+      {% endif %}
+      <tbody>
+        {% for student in student_data %}
+        <tr>
+          <td>{{student.name}}</td>
+          <td>{{student.id}}</td>
+          <td>{{student.mail}}</td>
+        </tr>
+        {% empty %}
+        <h3>No data found</h3>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

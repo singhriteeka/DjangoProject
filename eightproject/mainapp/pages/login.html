@@ -1,0 +1,298 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Sign in to PeopleConnect and stay connected with your community.">
+
+    <title>Sign In | PeopleConnect</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">      
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <script src="{% static 'js/script.js' %}" defer></script>
+</head>
+
+<body class="pc-login-page">
+
+    <!-- Navigation -->
+
+        {% include 'partials/navbar.html' %}   
+
+    <!-- Main Login Layout -->
+    <main class="pc-login-container">
+
+        <!-- Left: Brand Experience -->
+        <section class="pc-login-visual">
+
+            <div class="pc-visual-content">
+
+                <span class="pc-visual-tag">
+                    <span class="pc-live-dot"></span>
+                    CONNECTION STARTS HERE
+                </span>
+
+                <h1>
+                    Your world.
+                    <br>
+                    Your people.
+                    <br>
+                    <span>Your connections.</span>
+                </h1>
+
+                <p class="pc-visual-description">
+                    Great connections create great possibilities.
+                    Come back to a community where conversations,
+                    ideas and opportunities come together.
+                </p>
+
+
+                <!-- Community illustration -->
+                <div class="pc-community-art">
+
+                    <div class="pc-art-glow"></div>
+
+                    <div class="pc-art-orbit pc-art-orbit-one"></div>
+                    <div class="pc-art-orbit pc-art-orbit-two"></div>
+
+                    <div class="pc-art-center">
+                        <span>∞</span>
+                    </div>
+
+                    <div class="pc-art-avatar pc-avatar-one">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces"
+                             alt="Community member">
+                    </div>
+
+                    <div class="pc-art-avatar pc-avatar-two">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces"
+                             alt="Community member">
+                    </div>
+
+                    <div class="pc-art-avatar pc-avatar-three">
+                        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop&crop=faces"
+                             alt="Community member">
+                    </div>
+
+                    <div class="pc-art-avatar pc-avatar-four">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces"
+                             alt="Community member">
+                    </div>
+
+                    <div class="pc-art-avatar pc-avatar-five">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces"
+                             alt="Community member">
+                    </div>
+
+                </div>
+
+
+                <div class="pc-visual-footer">
+                    <div class="pc-footer-symbol">✳</div>
+
+                    <div>
+                        <strong>More than a platform.</strong>
+                        <span>A place to belong.</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Right: Authentication -->
+        <section class="pc-login-form-area">
+
+            <div class="pc-login-card">
+
+                <div class="pc-card-top">
+
+                    <div class="pc-card-icon">
+                        <span>↗</span>
+                    </div>
+
+                    <span class="pc-card-label">
+                        MEMBER LOGIN
+                    </span>
+
+                </div>
+
+
+                <div class="pc-form-heading">
+
+                    <h2>Welcome back<span>.</span></h2>
+
+                    <p>
+                        It's good to see you again.
+                        Sign in to continue your journey.
+                    </p>
+
+                </div>
+
+
+                <!-- Login Form -->
+                <form class="pc-form"
+                      data-form="login"
+                      method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="pc-field">
+
+                        <label for="email">
+                            Email address
+                        </label>
+
+                        <div class="pc-input-wrapper">
+
+                            <span class="pc-input-icon">✉</span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="name@example.com"
+                                autocomplete="email"
+                                required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pc-field">
+
+                        <div class="pc-password-heading">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <a href="#forgot-password">
+                                Forgot password?
+                            </a>
+
+                        </div>
+
+
+                        <div class="pc-input-wrapper">
+
+                            <span class="pc-input-icon">♙</span>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required>
+
+                            <button
+                                type="button"
+                                class="pc-password-toggle"
+                                aria-label="Show password"
+                                aria-pressed="false">
+
+                                <span>◉</span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pc-form-options">
+
+                        <label class="pc-remember">
+
+                            <input type="checkbox" name="remember">
+
+                            <span>Remember me</span>
+
+                        </label>
+
+                    </div>
+
+
+                    <button type="submit" class="pc-submit-button">
+
+                        <span>Sign in to your account</span>
+
+                        <span class="pc-submit-arrow">→</span>
+
+                    </button>
+
+
+                    <p class="pc-form-message" aria-live="polite"></p>
+
+                </form>
+
+
+                <!-- Divider -->
+                <div class="pc-divider">
+                    <span>OR CONTINUE WITH</span>
+                </div>
+
+
+                <!-- Social Login -->
+                <div class="pc-social-login">
+
+                    <button type="button" class="pc-social-button">
+                        <span class="pc-google-logo">G</span>
+                        Google
+                    </button>
+
+                    <button type="button" class="pc-social-button">
+                        <span class="pc-facebook-logo">f</span>
+                        Facebook
+                    </button>
+
+                </div>
+
+
+                <!-- Signup -->
+                <div class="pc-signup-prompt">
+
+                    <span>Don't have an account?</span>
+
+                    <a href="{% url 'signup' %}">
+                        Join PeopleConnect
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="pc-login-bottom">
+                <span>© 2026 PeopleConnect</span>
+
+                <div>
+                    <a href="{% url 'main' %}#contact">Support</a>
+                    <a href="{% url 'main' %}">Home</a>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    {% include 'partials/footer.html' %}
+    
+
+</body>
+</html>

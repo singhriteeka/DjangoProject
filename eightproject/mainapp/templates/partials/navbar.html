@@ -1,0 +1,38 @@
+{% load static %}
+
+<header class="navbar">
+
+    <a href="{% url 'main' %}" class="logo">
+        <span>∞</span>
+    </a>
+
+    <nav class="nav-links">
+
+        <a href="{% url 'main' %}"
+           class="{% if request.resolver_match.url_name == 'main' %}active{% endif %}">
+            Home
+        </a>
+
+        <a href="{% url 'login' %}"
+           class="{% if request.resolver_match.url_name == 'login' %}active{% endif %}">
+            Login
+        </a>
+
+        <a href="{% url 'signup' %}"
+           class="{% if request.resolver_match.url_name == 'signup' %}active{% endif %}">
+            Sign Up
+        </a>
+
+    </nav>
+
+    <button class="menu-toggle"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
+
+        <span></span>
+        <span></span>
+
+    </button>
+
+</header>

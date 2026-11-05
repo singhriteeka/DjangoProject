@@ -1,0 +1,1120 @@
+/* =========================================
+   1. LOGIN PAGE FOUNDATION
+   Shared PeopleConnect design system
+========================================= */
+
+.pc-login-page {
+    --pc-primary: #a0004d;
+    --pc-primary-dark: #83003e;
+    --pc-text: #17121a;
+    --pc-muted: #77717c;
+    --pc-border: rgba(61, 39, 62, 0.35);
+    --pc-white: #ffffff;
+    --pc-radius: 24px;
+    --pc-transition: 0.3s ease;
+
+    min-height: 100vh;
+    margin: 0;
+    color: var(--pc-text);
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 12% 15%,
+            rgba(255, 194, 221, 0.75),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 12%,
+            rgba(159, 224, 248, 0.7),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 85% 90%,
+            rgba(225, 155, 231, 0.65),
+            transparent 40%
+        ),
+        linear-gradient(
+            120deg,
+            #fff0f5,
+            #e8faff,
+            #f7e8fa
+        );
+
+    background-attachment: fixed;
+}
+
+.pc-login-page *,
+.pc-login-page *::before,
+.pc-login-page *::after {
+    box-sizing: border-box;
+}
+
+.pc-login-page button,
+.pc-login-page input {
+    font: inherit;
+}
+
+.pc-login-page button {
+    cursor: pointer;
+}
+
+.pc-login-page a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   2. NAVIGATION BAR
+========================================= */
+
+.pc-login-navbar {
+    width: 100%;
+    min-height: 100px;
+    padding: 0 6.3%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 10;
+}
+
+.pc-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--pc-primary);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.pc-brand-icon {
+    width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    background: var(--pc-primary);
+    color: var(--pc-white);
+
+    font-size: 35px;
+    font-weight: bold;
+
+    box-shadow: 0 8px 22px rgba(160, 0, 77, 0.2);
+}
+
+.pc-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    color: var(--pc-muted);
+    font-size: 13px;
+}
+
+.pc-nav-signup {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--pc-primary) !important;
+    font-weight: bold;
+
+    transition: var(--pc-transition);
+}
+
+.pc-nav-signup:hover {
+    color: var(--pc-primary-dark) !important;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   3. MAIN LOGIN LAYOUT
+========================================= */
+
+.pc-login-container {
+    width: 100%;
+    max-width: 1500px;
+    min-height: calc(100vh - 115px);
+
+    margin: 0 auto;
+    padding: 30px 6.5% 45px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+
+    align-items: center;
+    gap: 45px;
+}
+
+.pc-login-visual {
+    grid-column: 1;
+    width: 100%;
+    min-height: 620px;
+}
+
+.pc-login-form-area {
+    grid-column: 2;
+    width: 100%;
+    max-width: 525px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   4. LEFT VISUAL SECTION
+========================================= */
+
+.pc-login-visual {
+    width: 100%;
+    min-height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    padding: 40px 35px;
+    border-radius: var(--pc-radius);
+
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.pc-visual-content {
+    width: 100%;
+    max-width: 510px;
+    position: relative;
+    z-index: 2;
+}
+
+.pc-visual-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 28px;
+
+    color: var(--pc-primary);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.pc-live-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    background: var(--pc-primary);
+
+    box-shadow: 0 0 0 5px rgba(160, 0, 77, 0.09);
+}
+
+.pc-visual-content h1 {
+    margin: 0 0 20px;
+
+    color: var(--pc-text);
+    font-size: clamp(34px, 4vw, 49px);
+    font-weight: 800;
+    line-height: 1.16;
+    letter-spacing: -1.5px;
+}
+
+.pc-visual-content h1 span {
+    color: var(--pc-primary);
+}
+
+.pc-visual-description {
+    max-width: 460px;
+    margin: 0;
+
+    color: #625c67;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* =========================================
+   5. COMMUNITY ILLUSTRATION
+========================================= */
+
+.pc-community-art {
+    width: 100%;
+    max-width: 390px;
+    aspect-ratio: 1 / 0.78;
+
+    position: relative;
+    margin: 22px auto 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pc-art-glow {
+    width: 44%;
+    height: 55%;
+
+    position: absolute;
+    border-radius: 50%;
+
+    background: rgba(160, 0, 77, 0.09);
+    filter: blur(35px);
+}
+
+.pc-art-orbit {
+    position: absolute;
+    border: 1px dashed rgba(151, 0, 66, 0.55);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.pc-art-orbit-one {
+    width: 76%;
+    height: 75%;
+    transform: rotate(-18deg);
+}
+
+.pc-art-orbit-two {
+    width: 54%;
+    height: 92%;
+    transform: rotate(55deg);
+}
+
+.pc-art-center {
+    width: 24%;
+    aspect-ratio: 1;
+
+    display: grid;
+    place-items: center;
+
+    position: relative;
+    z-index: 2;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.48);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow: 0 15px 35px rgba(48, 20, 53, 0.12);
+    backdrop-filter: blur(12px);
+}
+
+.pc-art-center span {
+    color: var(--pc-primary);
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.pc-art-avatar {
+    width: 13%;
+    aspect-ratio: 1;
+
+    position: absolute;
+    z-index: 3;
+
+    overflow: hidden;
+
+    border: 3px solid white;
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow: 0 10px 25px rgba(39, 13, 46, 0.18);
+    transition: var(--pc-transition);
+}
+
+.pc-art-avatar:hover {
+    transform: scale(1.12);
+}
+
+.pc-art-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pc-avatar-one {
+    top: 7%;
+    left: 17%;
+}
+
+.pc-avatar-two {
+    top: 3%;
+    right: 17%;
+}
+
+.pc-avatar-three {
+    top: 43%;
+    right: 3%;
+}
+
+.pc-avatar-four {
+    bottom: 5%;
+    left: 28%;
+}
+
+.pc-avatar-five {
+    bottom: 8%;
+    right: 27%;
+}
+
+
+/* =========================================
+   6. VISUAL FOOTER
+========================================= */
+
+.pc-visual-footer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 10px;
+}
+
+.pc-footer-symbol {
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+    background: var(--pc-primary);
+    color: white;
+
+    font-size: 23px;
+}
+
+.pc-visual-footer strong,
+.pc-visual-footer span {
+    display: block;
+}
+
+.pc-visual-footer strong {
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.pc-visual-footer div:last-child span {
+    color: var(--pc-muted);
+    font-size: 11px;
+}
+
+
+/* =========================================
+   7. LOGIN FORM AREA
+========================================= */
+
+.pc-login-form-area {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.pc-login-card {
+    width: 100%;
+    padding: 38px 35px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: var(--pc-radius);
+
+    background: rgba(255, 255, 255, 0.32);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: 0 18px 45px rgba(48, 20, 53, 0.08);
+}
+
+
+/* =========================================
+   8. CARD HEADER
+========================================= */
+
+.pc-card-top {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 32px;
+}
+
+.pc-card-icon {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+    background: var(--pc-primary);
+    color: white;
+
+    font-size: 25px;
+    box-shadow: 0 8px 20px rgba(160, 0, 77, 0.17);
+}
+
+.pc-card-label {
+    color: var(--pc-primary);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   9. FORM HEADING
+========================================= */
+
+.pc-form-heading {
+    margin-bottom: 32px;
+}
+
+.pc-form-heading h2 {
+    margin: 0 0 12px;
+
+    color: var(--pc-text);
+    font-size: clamp(28px, 3vw, 35px);
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.pc-form-heading h2 span {
+    color: var(--pc-primary);
+}
+
+.pc-form-heading p {
+    margin: 0;
+
+    color: #625c67;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   10. FORM FIELDS
+========================================= */
+
+.pc-form {
+    width: 100%;
+}
+
+.pc-field {
+    width: 100%;
+    margin-bottom: 21px;
+}
+
+.pc-field > label,
+.pc-password-heading label {
+    display: block;
+    margin-bottom: 10px;
+
+    color: var(--pc-text);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pc-password-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.pc-password-heading a {
+    margin-bottom: 10px;
+
+    color: var(--pc-primary);
+    font-size: 11px;
+    font-weight: bold;
+
+    transition: var(--pc-transition);
+}
+
+.pc-password-heading a:hover {
+    color: var(--pc-primary-dark);
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   11. INPUT WRAPPERS
+========================================= */
+
+.pc-input-wrapper {
+    width: 100%;
+    height: 49px;
+
+    position: relative;
+}
+
+.pc-input-wrapper input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 43px;
+
+    border: 1px solid rgba(61, 39, 62, 0.25);
+    border-radius: 14px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.32);
+    color: var(--pc-text);
+
+    font-size: 13px;
+
+    transition: var(--pc-transition);
+}
+
+.pc-input-wrapper input::placeholder {
+    color: #99919d;
+}
+
+.pc-input-wrapper input:hover {
+    border-color: rgba(160, 0, 77, 0.4);
+}
+
+.pc-input-wrapper input:focus {
+    border-color: var(--pc-primary);
+
+    background: rgba(255, 255, 255, 0.65);
+
+    box-shadow: 0 0 0 3px rgba(160, 0, 77, 0.08);
+}
+
+.pc-input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    z-index: 2;
+
+    transform: translateY(-50%);
+
+    color: #817784;
+    font-size: 13px;
+
+    pointer-events: none;
+}
+
+.pc-password-toggle {
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+    place-items: center;
+
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    z-index: 3;
+
+    transform: translateY(-50%);
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #817784;
+
+    font-size: 17px;
+    transition: var(--pc-transition);
+}
+
+.pc-password-toggle:hover {
+    background: rgba(160, 0, 77, 0.08);
+    color: var(--pc-primary);
+}
+
+
+/* =========================================
+   12. REMEMBER ME
+========================================= */
+
+.pc-form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 5px 0 24px;
+}
+
+.pc-remember {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #625c67;
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.pc-remember input {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+
+    accent-color: var(--pc-primary);
+}
+
+
+/* =========================================
+   13. SUBMIT BUTTON
+========================================= */
+
+.pc-submit-button {
+    width: 100%;
+    min-height: 53px;
+    padding: 0 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    border: 1px solid var(--pc-primary);
+    border-radius: 13px;
+
+    background: var(--pc-primary);
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow: 0 12px 25px rgba(160, 0, 77, 0.16);
+
+    transition: var(--pc-transition);
+}
+
+.pc-submit-button:hover {
+    background: var(--pc-primary-dark);
+    border-color: var(--pc-primary-dark);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 15px 28px rgba(160, 0, 77, 0.2);
+}
+
+.pc-submit-arrow {
+    font-size: 22px;
+    transition: transform var(--pc-transition);
+}
+
+.pc-submit-button:hover .pc-submit-arrow {
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   14. FORM MESSAGE
+========================================= */
+
+.pc-form-message {
+    min-height: 18px;
+    margin: 10px 0 0;
+
+    text-align: center;
+    font-size: 12px;
+}
+
+.pc-form-message.error {
+    color: #c00036;
+}
+
+.pc-form-message.success {
+    color: #087d49;
+}
+
+
+/* =========================================
+   15. SOCIAL LOGIN DIVIDER
+========================================= */
+
+.pc-divider {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin: 30px 0;
+
+    color: #625c67;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.pc-divider::before,
+.pc-divider::after {
+    content: "";
+    flex: 1;
+
+    height: 1px;
+    background: rgba(61, 39, 62, 0.2);
+}
+
+
+/* =========================================
+   16. SOCIAL LOGIN BUTTONS
+========================================= */
+
+.pc-social-login {
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+}
+
+.pc-social-button {
+    flex: 1;
+    min-height: 47px;
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+
+    border: 1px solid rgba(61, 39, 62, 0.25);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.28);
+    color: var(--pc-text);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: var(--pc-transition);
+}
+
+.pc-social-button:hover {
+    background: rgba(255, 255, 255, 0.65);
+    border-color: rgba(160, 0, 77, 0.4);
+
+    transform: translateY(-3px);
+}
+
+.pc-google-logo {
+    color: #4285f4;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.pc-facebook-logo {
+    color: #1877f2;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   17. SIGNUP PROMPT
+========================================= */
+
+.pc-signup-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    margin-top: 32px;
+
+    color: #625c67;
+    font-size: 11px;
+}
+
+.pc-signup-prompt a {
+    color: var(--pc-primary);
+    font-weight: bold;
+
+    transition: var(--pc-transition);
+}
+
+.pc-signup-prompt a:hover {
+    color: var(--pc-primary-dark);
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   18. LOGIN BOTTOM FOOTER
+========================================= */
+
+.pc-login-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 20px;
+
+    color: #77717b;
+    font-size: 11px;
+}
+
+.pc-login-bottom div {
+    display: flex;
+    gap: 20px;
+}
+
+.pc-login-bottom a {
+    transition: var(--pc-transition);
+}
+
+.pc-login-bottom a:hover {
+    color: var(--pc-primary);
+}
+
+
+/* =========================================
+   19. TABLET RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .pc-login-navbar {
+        padding: 0 5%;
+    }
+
+    .pc-login-container {
+        padding-left: 5%;
+        padding-right: 5%;
+        gap: 25px;
+    }
+
+    .pc-login-visual {
+        padding: 30px 22px;
+    }
+
+    .pc-login-card {
+        padding: 32px 25px;
+    }
+
+    .pc-visual-content h1 {
+        font-size: 36px;
+    }
+
+}
+
+
+/* =========================================
+   20. MOBILE RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 750px) {
+
+    .pc-login-navbar {
+        min-height: 85px;
+        padding: 0 6%;
+    }
+
+    .pc-brand {
+        font-size: 17px;
+    }
+
+    .pc-brand-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+
+    .pc-nav-right > span {
+        display: none;
+    }
+
+    .pc-login-container {
+        grid-template-columns: 1fr;
+        padding: 20px 7% 45px;
+        gap: 25px;
+    }
+
+    .pc-login-visual {
+        min-height: auto;
+        padding: 30px 25px;
+    }
+
+    .pc-visual-content {
+        max-width: 520px;
+    }
+
+    .pc-visual-content h1 {
+        font-size: clamp(31px, 6vw, 40px);
+    }
+
+    .pc-community-art {
+        max-width: 330px;
+    }
+
+    .pc-login-form-area {
+        max-width: 520px;
+    }
+
+    .pc-login-card {
+        padding: 32px 28px;
+    }
+    .pc-login-container {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 20px 7% 45px;
+        gap: 25px;
+    }
+
+    .pc-login-visual,
+    .pc-login-form-area {
+        grid-column: 1;
+    }
+
+}
+
+
+/* =========================================
+   21. SMALL MOBILE DESIGN
+========================================= */
+
+@media (max-width: 480px) {
+
+    .pc-login-navbar {
+        min-height: 75px;
+    }
+
+    .pc-brand {
+        font-size: 15px;
+        gap: 8px;
+    }
+
+    .pc-brand-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 27px;
+    }
+
+    .pc-nav-signup {
+        font-size: 11px;
+    }
+
+    .pc-login-container {
+        padding: 15px 5% 35px;
+        gap: 20px;
+    }
+
+    .pc-login-visual {
+        padding: 25px 19px;
+        border-radius: 19px;
+    }
+
+    .pc-visual-tag {
+        font-size: 9px;
+        margin-bottom: 20px;
+    }
+
+    .pc-visual-content h1 {
+        font-size: 30px;
+        letter-spacing: -0.7px;
+    }
+
+    .pc-visual-description {
+        font-size: 12px;
+    }
+
+    .pc-community-art {
+        max-width: 270px;
+    }
+
+    .pc-art-center {
+        border-radius: 18px;
+    }
+
+    .pc-art-center span {
+        font-size: 39px;
+    }
+
+    .pc-login-card {
+        padding: 27px 20px;
+        border-radius: 19px;
+    }
+
+    .pc-card-top {
+        margin-bottom: 25px;
+    }
+
+    .pc-form-heading {
+        margin-bottom: 25px;
+    }
+
+    .pc-form-heading h2 {
+        font-size: 27px;
+    }
+
+    .pc-form-heading p {
+        font-size: 12px;
+    }
+
+    .pc-input-wrapper {
+        height: 46px;
+    }
+
+    .pc-submit-button {
+        min-height: 49px;
+        font-size: 13px;
+    }
+
+    .pc-social-login {
+        gap: 9px;
+    }
+
+    .pc-social-button {
+        min-height: 44px;
+        padding: 0 7px;
+        gap: 7px;
+        font-size: 11px;
+    }
+
+    .pc-signup-prompt {
+        margin-top: 25px;
+        font-size: 10px;
+    }
+
+    .pc-login-bottom {
+        font-size: 10px;
+    }
+
+}
+
+
+/* =========================================
+   22. ACCESSIBILITY
+========================================= */
+
+.pc-login-page a:focus-visible,
+.pc-login-page button:focus-visible,
+.pc-login-page input:focus-visible {
+    outline: 3px solid rgba(160, 0, 77, 0.3);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pc-login-page *,
+    .pc-login-page *::before,
+    .pc-login-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

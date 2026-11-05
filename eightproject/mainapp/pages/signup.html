@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Create Account | PeopleConnect{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+</head>
+
+<body>
+
+
+    {% include 'partials/navbar.html' %}
+
+
+    <main class="auth-layout">
+
+        <section class="visual-section">
+
+            <div class="orbit orbit-large"></div>
+            <div class="orbit orbit-small"></div>
+
+            <div class="central-profile">
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&h=500&fit=crop&crop=faces"
+                    alt="Main profile">
+            </div>
+
+            <div class="floating-profile profile-one">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=faces" alt="Profile">
+            </div>
+
+            <div class="floating-profile profile-two">
+                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop&crop=faces" alt="Profile">
+            </div>
+
+            <div class="floating-profile profile-three">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces" alt="Profile">
+            </div>
+
+            <div class="floating-profile profile-four">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces" alt="Profile">
+            </div>
+
+            <div class="floating-profile profile-five">
+                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=200&h=200&fit=crop&crop=faces" alt="Profile">
+            </div>
+
+        </section>
+
+        <section class="content-section auth-content">
+
+            <div class="auth-heading">
+                <h1>Be Part of Our Community</h1>
+
+                <p>
+                    Create your account and start connecting with people.
+                    Discover new opportunities and build meaningful
+                    relationships with our growing community.
+                </p>
+            </div>
+
+            <div class="auth-box signup-box">
+
+                <h2>Create Your Account</h2>
+
+                <form class="auth-form" data-form="signup">
+
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            name="fullname"
+                            placeholder="Full Name"
+                            autocomplete="name"
+                            required
+                            minlength="2">
+                    </div>
+
+                    <div class="input-group">
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Your Email"
+                            autocomplete="email"
+                            required>
+                    </div>
+
+                    <div class="input-group password-group">
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Create Password"
+                            autocomplete="new-password"
+                            required
+                            minlength="8">
+
+                        <button type="button" class="password-toggle"
+                            aria-label="Show password">
+                            ◉
+                        </button>
+                    </div>
+
+                    <div class="input-group password-group">
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="Confirm Password"
+                            autocomplete="new-password"
+                            required
+                            minlength="8">
+
+                        <button type="button" class="password-toggle"
+                            aria-label="Show password">
+                            ◉
+                        </button>
+                    </div>
+
+                    <label class="terms">
+                        <input type="checkbox" name="terms" required>
+                        <span>
+                            I agree to the
+                            <a href="#terms">Terms & Conditions</a>
+                        </span>
+                    </label>
+
+                    <button type="submit" class="primary-btn login-btn">
+                        Create Account
+                    </button>
+
+                    <p class="form-message" aria-live="polite"></p>
+
+                </form>
+
+                <p class="account-switch">
+                    Already have an account?
+                    <a href="{% url 'login' %}">Login</a>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+        {% include 'partials/footer.html' %}
+
+</body>
+</html>

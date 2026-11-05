@@ -1,0 +1,978 @@
+/* =========================================
+   1. GLOBAL RESET AND VARIABLES
+========================================= */
+
+:root {
+    --primary: #a0004d;
+    --primary-dark: #83003e;
+    --text: #17121a;
+    --muted: #77717c;
+    --border: rgba(61, 39, 62, 0.65);
+    --white: #ffffff;
+    --radius: 24px;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 12% 15%,
+            rgba(255, 194, 221, 0.75),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 12%,
+            rgba(159, 224, 248, 0.7),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 85% 90%,
+            rgba(225, 155, 231, 0.65),
+            transparent 40%
+        ),
+        linear-gradient(
+            120deg,
+            #fff0f5,
+            #e8faff,
+            #f7e8fa
+        );
+
+    background-attachment: fixed;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================
+   2. NAVIGATION BAR
+========================================= */
+
+.navbar {
+    width: 100%;
+    height: 115px;
+    padding: 0 6.3%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 1;
+
+    box-shadow: 0 8px 22px rgba(160, 0, 77, 0.2);
+}
+
+.logo span {
+    transform: rotate(-15deg);
+    margin-top: -5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+}
+
+.nav-links a {
+    position: relative;
+    padding: 12px 0;
+
+    color: #77717b;
+    font-size: 14px;
+    letter-spacing: 0.7px;
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #17121a;
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+    content: "";
+
+    position: absolute;
+    left: -20px;
+    bottom: -7px;
+
+    width: calc(100% + 40px);
+    height: 2px;
+
+    background: var(--primary);
+}
+
+.menu-toggle {
+    width: 42px;
+    height: 35px;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+}
+
+.menu-toggle span {
+    width: 40px;
+    height: 3px;
+    background: #17121a;
+    transition: var(--transition);
+}
+
+.menu-toggle span:last-child {
+    width: 25px;
+    margin-left: auto;
+}
+
+
+/* =========================================
+   3. MAIN PAGE LAYOUT
+========================================= */
+
+.main-layout,
+.auth-layout {
+    width: 100%;
+    max-width: 1500px;
+    min-height: calc(100vh - 115px);
+
+    margin: 0 auto;
+    padding: 30px 6.5% 60px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    gap: 45px;
+}
+
+
+/* =========================================
+   4. PROFILE VISUAL SECTION
+========================================= */
+
+.visual-section {
+    width: 100%;
+    max-width: 520px;
+    aspect-ratio: 1 / 1;
+
+    position: relative;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.orbit {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.orbit-large {
+    width: 80%;
+    height: 80%;
+
+    border: 1px dashed rgba(151, 0, 66, 0.75);
+}
+
+.orbit-small {
+    width: 54%;
+    height: 54%;
+
+    border: 1px dashed rgba(151, 0, 66, 0.65);
+}
+
+.central-profile {
+    width: 22%;
+    aspect-ratio: 1 / 1;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    position: relative;
+    z-index: 2;
+
+    box-shadow:
+        0 25px 55px rgba(48, 20, 53, 0.32),
+        0 0 35px rgba(160, 0, 77, 0.18);
+}
+
+.central-profile img,
+.floating-profile img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+}
+
+.floating-profile {
+    width: 12%;
+    aspect-ratio: 1 / 1;
+
+    position: absolute;
+    z-index: 3;
+
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+    overflow: hidden;
+
+    box-shadow:
+        0 17px 28px rgba(39, 13, 46, 0.27),
+        0 0 20px rgba(166, 0, 87, 0.12);
+}
+
+.profile-one {
+    top: 17%;
+    left: 12%;
+}
+
+.profile-two {
+    top: 7%;
+    left: 55%;
+}
+
+.profile-three {
+    top: 18%;
+    right: 8%;
+}
+
+.profile-four {
+    bottom: 18%;
+    left: 17%;
+}
+
+.profile-five {
+    bottom: 10%;
+    right: 19%;
+}
+
+
+/* =========================================
+   5. CONTENT SECTION
+========================================= */
+
+.content-section {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.intro {
+    margin-bottom: 65px;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 15px;
+
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.intro h1,
+.auth-heading h1 {
+    font-size: clamp(30px, 3vw, 39px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.intro h1 span {
+    color: var(--primary);
+}
+
+.intro p,
+.auth-heading p {
+    color: #625c67;
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 460px;
+}
+
+.main-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.primary-btn,
+.secondary-btn {
+    min-height: 47px;
+    padding: 0 25px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--primary);
+    border-radius: 14px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    transition: var(--transition);
+}
+
+.primary-btn {
+    color: white;
+    background: var(--primary);
+}
+
+.primary-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(160, 0, 77, 0.2);
+}
+
+.secondary-btn {
+    color: var(--primary);
+    background: transparent;
+}
+
+.secondary-btn:hover {
+    background: rgba(160, 0, 77, 0.08);
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   6. FEATURE CARDS
+========================================= */
+
+.features h2 {
+    font-size: 21px;
+    margin-bottom: 22px;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.feature-card {
+    padding: 18px 13px;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(12px);
+
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.feature-icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 14px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.feature-card h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    color: #68616c;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    color: #77717b;
+    font-size: 12px;
+}
+
+
+/* =========================================
+   7. AUTHENTICATION SECTION
+========================================= */
+
+.auth-content {
+    max-width: 465px;
+}
+
+.auth-heading {
+    margin-bottom: 85px;
+}
+
+.auth-heading h1 {
+    font-size: clamp(29px, 2.8vw, 37px);
+}
+
+.auth-box h2 {
+    margin-bottom: 38px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   8. INPUT FIELDS
+========================================= */
+
+.auth-form {
+    width: 100%;
+}
+
+.input-group {
+    width: 100%;
+    height: 48px;
+
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 20px;
+
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+
+    color: var(--text);
+    font-size: 13px;
+
+    transition: var(--transition);
+}
+
+.input-group input::placeholder {
+    color: #aaa2ae;
+}
+
+.input-group input:focus {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 0 0 3px rgba(160, 0, 77, 0.08);
+}
+
+.password-group input {
+    padding-right: 55px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+
+    color: #8d8490;
+    font-size: 17px;
+}
+
+.forgot-password {
+    text-align: right;
+    margin: 5px 5px 25px;
+}
+
+.forgot-password a {
+    color: var(--primary);
+    font-size: 12px;
+}
+
+.forgot-password a:hover,
+.account-switch a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   9. LOGIN BUTTON
+========================================= */
+
+.login-btn {
+    display: flex;
+    width: 150px;
+    min-height: 46px;
+
+    margin: 40px auto 0;
+
+    border: none;
+    border-radius: 14px;
+
+    box-shadow: 0 13px 25px rgba(160, 0, 77, 0.18);
+}
+
+
+/* =========================================
+   10. SOCIAL LOGIN
+========================================= */
+
+.social-divider {
+    margin: 34px 0 32px;
+    text-align: center;
+}
+
+.social-divider span {
+    color: #38313b;
+    font-size: 12px;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.social-btn {
+    width: 150px;
+    height: 47px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.1);
+    color: #302a34;
+
+    font-size: 13px;
+
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+}
+
+.facebook-icon,
+.google-icon {
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.account-switch {
+    margin-top: 65px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.account-switch a {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.form-message {
+    min-height: 18px;
+    margin-top: 12px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.form-message.error {
+    color: #c00036;
+}
+
+.form-message.success {
+    color: #087d49;
+}
+
+
+/* =========================================
+   11. SIGNUP PAGE
+========================================= */
+
+.signup-box .auth-heading {
+    margin-bottom: 35px;
+}
+
+.signup-box h2 {
+    margin-bottom: 25px;
+}
+
+.signup-box .login-btn {
+    margin-top: 25px;
+}
+
+.signup-box .account-switch {
+    margin-top: 28px;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin: 15px 4px 5px;
+
+    font-size: 11px;
+    color: #514a55;
+}
+
+.terms input {
+    accent-color: var(--primary);
+}
+
+.terms a {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+
+/* =========================================
+   12. RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        gap: 30px;
+    }
+
+    .main-layout,
+    .auth-layout {
+        padding-left: 5%;
+        padding-right: 5%;
+        gap: 25px;
+    }
+
+    .auth-heading {
+        margin-bottom: 55px;
+    }
+
+    .auth-box h2 {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .navbar {
+        height: 85px;
+    }
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+        top: 75px;
+        right: 5%;
+
+        width: 220px;
+        padding: 20px;
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 15px;
+
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(15px);
+
+        box-shadow: 0 12px 35px rgba(30, 10, 40, 0.1);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+        display: none;
+    }
+
+    .main-layout,
+    .auth-layout {
+        grid-template-columns: 1fr;
+        padding: 25px 7% 55px;
+        gap: 35px;
+    }
+
+    .visual-section {
+        max-width: 400px;
+    }
+
+    .content-section {
+        max-width: 500px;
+    }
+
+    .auth-content {
+        max-width: 480px;
+    }
+
+    .auth-heading {
+        margin-bottom: 40px;
+    }
+
+    .auth-heading h1 {
+        font-size: 31px;
+    }
+
+    .intro {
+        margin-bottom: 40px;
+    }
+
+    .account-switch {
+        margin-top: 40px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .navbar {
+        height: 75px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        font-size: 36px;
+    }
+
+    .main-layout,
+    .auth-layout {
+        padding: 20px 6% 40px;
+        gap: 25px;
+    }
+
+    .visual-section {
+        max-width: 340px;
+    }
+
+    .auth-heading h1,
+    .intro h1 {
+        font-size: 27px;
+    }
+
+    .auth-heading p,
+    .intro p {
+        font-size: 12px;
+    }
+
+    .auth-box h2 {
+        font-size: 19px;
+        margin-bottom: 27px;
+    }
+
+    .input-group {
+        height: 46px;
+    }
+
+    .social-buttons {
+        gap: 10px;
+    }
+
+    .social-btn {
+        width: 48%;
+        font-size: 12px;
+    }
+
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        padding: 15px;
+    }
+
+    .main-actions {
+        flex-direction: column;
+    }
+
+    .main-actions a {
+        width: 100%;
+    }
+
+}
+/* =========================================
+   SHARED FOOTER
+========================================= */
+
+.site-footer {
+    width: 100%;
+    padding: 35px 7% 20px;
+
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(15px);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.footer-content {
+    max-width: 1250px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--primary);
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.footer-logo {
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+
+    font-size: 29px;
+}
+
+.footer-description {
+    color: #6d6570;
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.footer-links a {
+    color: #514953;
+    font-size: 12px;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    max-width: 1250px;
+    margin: 25px auto 0;
+    padding-top: 17px;
+
+    border-top: 1px solid rgba(100, 75, 100, 0.15);
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    color: #77717b;
+    font-size: 11px;
+}
+
+/* Footer responsive design */
+
+@media (max-width: 750px) {
+
+    .site-footer {
+        padding: 30px 6% 18px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
